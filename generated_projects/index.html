@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>My Portfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+:root {
+  --primary: #4f46e5;
+  --secondary: #f3f4f6;
+  --bg-light: #ffffff;
+  --bg-dark: #1f2937;
+  --text-light: #111827;
+  --text-dark: #f3f4f6;
+  --transition: 0.3s ease;
+  --max-width: 1200px;
+}
+body {
+  margin:0;
+  font-family: system-ui, sans-serif;
+  background: var(--bg-light);
+  color: var(--text-light);
+  line-height: 1.6;
+  transition: background var(--transition), color var(--transition);
+}
+body.dark {
+  background: var(--bg-dark);
+  color: var(--text-dark);
+}
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+header {
+  position: sticky;
+  top:0;
+  background: var(--bg-light);
+  padding: 1rem 2rem;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  z-index:1000;
+  transition: background var(--transition);
+}
+body.dark header {background: var(--bg-dark);}
+nav a {
+  margin:0 1rem;
+  font-weight:500;
+}
+nav a:hover {text-decoration:underline;}
+#dark-mode-toggle {
+  background: none;
+  border:none;
+  cursor:pointer;
+  font-size:1.2rem;
+}
+section {
+  padding:4rem 2rem;
+  max-width:var(--max-width);
+  margin:auto;
+}
+#home {
+  background:linear-gradient(135deg, var(--primary), #6366f1);
+  color:#fff;
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  height:100vh;
+  min-height:500px;
+}
+#home h1 {font-size:3rem; margin-bottom:0.5rem;}
+#home p {font-size:1.2rem; margin-bottom:1.5rem;}
+.btn {
+  display:inline-block;
+  padding:0.75rem 1.5rem;
+  background:var(--primary);
+  color:#fff;
+  border-radius:0.5rem;
+  transition:background var(--transition);
+}
+.btn:hover {background:#4338ca;}
+#about {display:flex; flex-wrap:wrap; gap:2rem;}
+#about img {border-radius:50%; width:200px; height:200px; object-fit:cover;}
+#about .bio {flex:1;}
+#skills ul {display:flex; flex-wrap:wrap; gap:1rem;}
+#skills li {flex:1 1 150px; background:var(--secondary); padding:1rem; border-radius:0.5rem;}
+#skills li span {display:block; font-weight:600; margin-bottom:0.5rem;}
+#projects {display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:1.5rem;}
+.card {background:var(--secondary); padding:1rem; border-radius:0.5rem; display:flex; flex-direction:column; height:100%;}
+.card img {width:100%; height:150px; object-fit:cover; border-radius:0.5rem;}
+.card h3 {margin:0.5rem 0;}
+.card p {flex:1;}
+.card a {margin-right:0.5rem;}
+#contact form {display:grid; gap:1rem;}
+#contact input, #contact textarea {padding:0.75rem; border:1px solid #d1d5db; border-radius:0.5rem; width:100%; background:var(--bg-light); color:inherit;}
+#contact button {background:var(--primary); color:#fff; padding:0.75rem; border:none; border-radius:0.5rem; cursor:pointer;}
+#contact button:hover {background:#4338ca;}
+footer {text-align:center; padding:2rem; background:var(--secondary);}
+@media (max-width:768px) {
+  #about {flex-direction:column; align-items:center;}
+  #about img {margin-bottom:1rem;}
+}
+</style>
+</head>
+<body>
+<header>
+  <div><strong>My Portfolio</strong></div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+    <button id="dark-mode-toggle">🌙</button>
+  </nav>
+</header>
+
+<section id="home">
+  <h1>Hi, I'm Alex Doe</h1>
+  <p>Full Stack Developer & Designer</p>
+  <a href="#about" class="btn">Learn More</a>
+</section>
+
+<section id="about">
+  <img src="https://picsum.photos/200" alt="Profile">
+  <div class="bio">
+    <h2>About Me</h2>
+    <p>Hello! I'm a passionate developer with experience in building responsive web applications. I love turning ideas into clean, functional code.</p>
+    <h3>Timeline</h3>
+    <ul>
+      <li>2020-2022: Junior Developer at XYZ Corp</li>
+      <li>2022-2024: Frontend Lead at ABC Inc</li>
+      <li>2024-Present: Freelance Web Developer</li>
+    </ul>
+  </div>
+</section>
+
+<section id="skills">
+  <h2>Skills</h2>
+  <ul>
+    <li><span>JavaScript</span> 90%</li>
+    <li><span>React</span> 80%</li>
+    <li><span>CSS3</span> 85%</li>
+    <li><span>Node.js</span> 75%</li>
+    <li><span>Python</span> 70%</li>
+  </ul>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="card">
+    <img src="https://picsum.photos/400/200?random=1" alt="Project 1">
+    <h3>Project One</h3>
+    <p>A web app that tracks tasks and deadlines.</p>
+    <a href="#" target="_blank">Live Demo</a>
+    <a href="#" target="_blank">GitHub</a>
+  </div>
+  <div class="card">
+    <img src="https://picsum.photos/400/200?random=2" alt="Project 2">
+    <h3>Project Two</h3>
+    <p>Responsive portfolio template built with vanilla JS.</p>
+    <a href="#" target="_blank">Live Demo</a>
+    <a href="#" target="_blank">GitHub</a>
+  </div>
+  <div class="card">
+    <img src="https://picsum.photos/400/200?random=3" alt="Project 3">
+    <h3>Project Three</h3>
+    <p>Data visualization dashboard using D3.js.</p>
+    <a href="#" target="_blank">Live Demo</a>
+    <a href="#" target="_blank">GitHub</a>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact Me</h2>
+  <form id="contact-form" novalidate>
+    <input type="text" id="name" placeholder="Your Name" required>
+    <input type="email" id="email" placeholder="Your Email" required>
+    <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
+    <p id="form-feedback" style="color:green;"></p>
+  </form>
+</section>
+
+<footer>
+  © <span id="year"></span> Alex Doe
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // Smooth scrolling
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', e => {
+      e.preventDefault();
+      document.querySelector(anchor.getAttribute('href')).scrollIntoView({behavior:'smooth'});
+    });
+  });
+
+  // Dark mode toggle
+  const toggle = document.getElementById('dark-mode-toggle');
+  const body = document.body;
+  const STORAGE_KEY = 'portfolio-dark-mode';
+  const setDark = (isDark) => {
+    body.classList.toggle('dark', isDark);
+    localStorage.setItem(STORAGE_KEY, isDark);
+  };
+  toggle.addEventListener('
